@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Rating } from '@mui/material';
+import UserComments from './UserComments';
 
 
 function ViewProduct() {
@@ -43,6 +44,12 @@ function ViewProduct() {
             <p>Tags : <span className='text-capitalize'>{product.tags[0]} {product.tags[1]}</span></p>
           </div>
         </div>
+      </section>
+      <section>
+         <h3>Comments</h3>
+         <div>
+            <UserComments/>
+         </div>
       </section>
     </main>
   );
