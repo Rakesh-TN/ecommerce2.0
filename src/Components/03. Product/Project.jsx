@@ -16,12 +16,12 @@ function Project() {
   })
   return (
     <main >
-      <section>
+      <section >
         <div className='text-center my-5'>
           <h1>Products</h1>
         </div>
       </section>
-      <section className='ps2'>
+      <section className='ps2 container'>
         <div>
           <div className='row'>
             {
