@@ -1,0 +1,14 @@
+body{
+  overflow-x: hidden !important;
+}
+
+@media screen and (max-width:546px) {
+  body{
+  }
+  .search-box{
+    position: absolute !important;
+    top: -100px !important;
+    width: 75% !important;
+    overflow-x: hidden !important;
+  }
+}
