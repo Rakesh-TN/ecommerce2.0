@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Comments from './comments.json'
+import heartIcon from '../assets/like-svgrepo-com.svg'
+
 
 function UserComments() {
-    const [Comment, setComment] = useState([])
 
-    useEffect(() => {
-        fetch('https://dummyjson.com/comments')
-            .then(response => response.json)
-            .then(data => setComment(data))
-            .catch(err => console.log(err))
-    })
     return (
         <div className='py-3'>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            {
+                Comments.map((Comments)=>(
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <h5 class="card-title">{Comments.user.fullName}</h5>
+                            <p class="card-text">{Comments.body}</p>
+                            <hr/>
+                            <div className='d-flex '>
+                                <img src={heartIcon} className='img-fluid heartIcon'/> <p className='m-1'>{Comments.likes}</p>
+                            </div>
+                            <input className='form-control my-3' placeholder='Reply..' />
+                        </div>
                     </div>
-                </div>
-        </div>
+                ))
+            }
+            </div>
     )
 }
 

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Rating } from '@mui/material';
 import UserComments from './UserComments';
+import Recommened from './Recommened';
 
 
 function ViewProduct() {
@@ -15,13 +16,17 @@ function ViewProduct() {
       .catch(err => console.log(err));
   }, [id]);
 
-  if (!product) return <div>Loading...</div>;
+  if (!product) return <section className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="spinner-border" style={{ width: '6rem', height: '6rem' }} role="status">
+        <p className="visually-hidden">Loading...</p>
+      </div>
+  </section>;
 
   return (
     <main className='container'>
       <section className='row'>
         <div className='col-lg-6'>
-          <img src={product.images} className='img-fluid' />
+          <img src={product.images} alt='No Image' className='img-fluid' />
         </div>
         <div className='col-lg-6'>
           <div className='pt-5'>
@@ -32,8 +37,8 @@ function ViewProduct() {
             </div>
             <p>{product.description}</p>
             <div className='d-flex'>
-            <h2 className=''>${product.discountPercentage}</h2>
-            <p className='text-decoration-line-through pt-3 ps-2'>${product.price}</p>
+              <h2 className=''>${product.price}</h2>
+              <p className='text-success pt-3 ps-2'>${product.discountPercentage} off</p>
             </div>
             <p>Brand : {product.brand}</p>
             <p>Stock : {product.stock}</p>
@@ -46,10 +51,12 @@ function ViewProduct() {
         </div>
       </section>
       <section>
-         <h3>Comments</h3>
-         <div>
-            <UserComments/>
-         </div>
+        <div>
+          <h3>Comments</h3>
+          <div>
+            <UserComments />
+          </div>
+        </div>
       </section>
     </main>
   );

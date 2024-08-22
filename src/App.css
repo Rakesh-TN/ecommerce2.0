@@ -1,7 +1,9 @@
 body{
   overflow-x: hidden !important;
 }
-
+.heartIcon{
+  width: 30px;
+}
 @media screen and (max-width:546px) {
   body{
   }
