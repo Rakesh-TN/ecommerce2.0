@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Rating } from '@mui/material';
 import UserComments from './UserComments';
@@ -25,11 +25,12 @@ function ViewProduct() {
   return (
     <main className='container'>
       <section className='row'>
+      <Link to={'/product'} className='py-3'> Back to Product</Link>
         <div className='col-lg-6'>
           <img src={product.images} alt='No Image' className='img-fluid' />
         </div>
         <div className='col-lg-6'>
-          <div className='pt-5'>
+          <div>
             <h1>{product.title}</h1>
             <div className='pt-2 d-flex'>
               <Rating name="read-only" value={product.rating} readOnly />

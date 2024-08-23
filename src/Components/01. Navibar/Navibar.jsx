@@ -19,7 +19,7 @@ function Navibar() {
                     <Nav>
                         <Nav.Link as={Link} to={'/'}>Home</Nav.Link>
                         <Nav.Link as={Link} to={'/product'}>Product</Nav.Link>
-                        <Button as={Link} to={'/user'} variant="primary">Cart</Button>
+                        <Button as={Link} to={'/user'} variant="primary" className='mx-2'>Cart</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
